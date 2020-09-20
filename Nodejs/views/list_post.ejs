@@ -1,0 +1,25 @@
+<div class="list_main">
+    <marquee behavior="" direction="">
+        <h1>Bài đăng các kiến thức tổng hợp được</h1>
+    </marquee>
+    <div class="content">
+        <% if(data.length){ 
+              for(var i = 0;i < data.length;i++) { %>
+        <h2><%= data[i].title%></h2>
+        <p><%= data[i].Ngay%> </p>
+        <p><%= data[i].contend%></p> <br>
+        <hr>
+        <% }
+            }else{ %>
+        <p>Không có bài đăng.</p>
+        <% } %>
+    </div>
+    <div class="list">
+        <h3 id="title">Danh sách bài đăng</h3>
+        <% if(data.length){ 
+            for(var i = 0;i < data.length;i++) { %>
+        <p><%= data[i].ID%>. <a href="#"><%= data[i].title%></a></p>
+        <% }
+        }%>
+    </div>
+</div>

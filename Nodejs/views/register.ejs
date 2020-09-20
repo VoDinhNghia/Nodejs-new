@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            background-color: lightseagreen;
+        }
+
+        form {
+            background-color: white;
+            box-sizing: border-box;
+            width: 350px;
+            margin: 50px auto 0;
+            box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.2);
+            padding-bottom: 40px;
+            border-radius: 3px;
+        }
+
+        form h1 {
+            box-sizing: border-box;
+            padding: 20px;
+            text-align: center;
+            color: green;
+        }
+
+        input {
+            margin: 40px 25px;
+            width: 300px;
+            display: block;
+            border: none;
+            padding: 10px 0;
+            border-bottom: solid 1px #1abc9c;
+            transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 96%, #1abc9c 4%);
+            background-position: -200px 0;
+            background-size: 200px 100%;
+            background-repeat: no-repeat;
+            color: #0e6252;
+        }
+
+        input:focus,
+        input:valid {
+            box-shadow: none;
+            outline: none;
+            background-position: 0 0;
+        }
+
+        input:focus::-webkit-input-placeholder,
+        input:valid::-webkit-input-placeholder {
+            color: #1abc9c;
+            font-size: 11px;
+            transform: translateY(-20px);
+            visibility: visible !important;
+        }
+
+        input[type="submit"] {
+            width: 85%;
+            padding: 15px;
+            background-color: #1abc9c;
+            border: 0;
+            box-sizing: border-box;
+            cursor: pointer;
+            font-weight: bold;
+            color: white;
+        }
+
+        a {
+            padding: 20px;
+            text-decoration: none;
+            color: red;
+            font-size: 16px;
+        }
+
+        a:hover {
+            color: green;
+        }
+
+        span {
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+    <form method="POST" action="/register-susces">
+        <h1>register</h1>
+        <input placeholder="Username" type="text" required="" name="Username">
+        <input placeholder="Password" type="password" required="" name="Password">
+        <input placeholder="Email" type="email" required="" name="Email">
+        <input placeholder="Mobile" type="number" required="" name="Mobile">
+        <input type="submit" value="Đăng ký">
+    </form>
+</body>
+
+</html>

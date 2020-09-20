@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .form_post {
+            width: 630px;
+            border-radius: 5px;
+            margin: auto;
+            background-color: lightskyblue;
+        }
+
+        .form_post form {
+            width: 500px;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .form_post input[type='text'] {
+            width: 400px;
+            height: 25px;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .form_post textarea {
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        .form_post #title {
+            color: brown;
+        }
+
+        .form_post input[type="submit"] {
+            width: 150px;
+            height: 30px;
+            font-size: 20px;
+            color: white;
+            border-radius: 5px;
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <%- include("./menu") %>
+        <br><br>
+        <div class="form_post">
+            <form action="/post-list" method="POST">
+                <p id="title">Title:</p>
+                <input type="text" required="" name="title"><br>
+                <p id="title">Content:</p>
+                <textarea rows="5" cols="60" name="contend"></textarea><br><br>
+                <input type="submit" value="Post">
+            </form>
+        </div>
+
+        <br>
+        <%- include("./footer") %>
+    </div>
+
+</body>
+
+</html>
