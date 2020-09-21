@@ -5,7 +5,12 @@
     <div class="content">
         <% if(data.length){ 
               for(var i = 0;i < data.length;i++) { %>
-        <h2><%= data[i].title%></h2>
+        <h2><%= data[i].title%> <span>
+                <form action="/delPost" method="POST">
+                    <input type="text" style="display: none;" name="ID" value=<%= data[i].ID%>>
+                    <input type="submit" value="Delete"></form>
+            </span>
+        </h2>
         <p><%= data[i].Ngay%> </p>
         <p><%= data[i].contend%></p> <br>
         <hr>
@@ -18,7 +23,8 @@
         <h3 id="title">Danh sách bài đăng</h3>
         <% if(data.length){ 
             for(var i = 0;i < data.length;i++) { %>
-        <p><%= data[i].ID%>. <a href="#"><%= data[i].title%></a></p>
+        <p><%= data[i].ID%>. <a href="/test/<%= data[i].ID%>"><%= data[i].title%></a></p>
+
         <% }
         }%>
     </div>
