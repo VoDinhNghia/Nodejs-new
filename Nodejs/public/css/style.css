@@ -98,10 +98,17 @@ body {
   border-radius: 5px;
 }
 .content h2{
-  color: red;
+  color: blue;
 }
 .content p{
   color: #00882D;
+}
+.content span{
+  float: right; font-size: 16px; 
+}
+.content span input[type="submit"]{
+  color: red;
+  border-radius: 5px;
 }
 .list_main .list{
   width: 25%;
