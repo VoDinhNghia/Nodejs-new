@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const { render } = require('ejs');
-app.use(express.static('./public'));
+app.use(express.static(__dirname + '/public'));
 app.use(express.static('./module'));
 app.set('views', './views'); // Thư mục views nằm cùng cấp với file app.js
 app.set('view engine', 'ejs');
@@ -15,6 +15,7 @@ app.use(session({
     saveUninitialized: true
 }));
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
+app.use(urlencodedParser);
 var connection = require('express-myconnection');
 const mysql = require('mysql');
 app.use(
@@ -27,21 +28,24 @@ app.use(
     }, 'request')
 );
 var sql = require('./module/Conn_sql');
-app.get('/index', sql.list);
-app.post('/search', urlencodedParser, sql.search);
 app.get('/', function (req, res) {
-    res.render('login')
+    res.render('login');
 });
+app.get('/index', sql.list);
+app.post('/search', sql.search);
 app.get('/post', function (req, res) {
     res.render('post')
 });
-app.post('/post-list', urlencodedParser, sql.post_list);
-app.post('/login-sucsses', urlencodedParser, sql.login);
+app.post('/post-list', sql.post_list);
+app.post('/login-sucsses', sql.login);
 app.get('/register', function (req, res) {
     res.render('register');
 });
-app.post('/register-susces', urlencodedParser, sql.register);
-//error: page not found 404
+app.post('/register-susces', sql.register);
+app.post('/delPost', sql.delPost);
+app.get("/test/:id", sql.test);
+
+//error: page not found 404/
 app.use((req, res, next) => {
     let err = new Error('Page not found.');
     err.status = 404;
