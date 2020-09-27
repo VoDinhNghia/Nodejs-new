@@ -3,6 +3,7 @@ exports.login = function (req, res) {
     let body = req.body;
     var username = req.body.Username;
     var password = req.body.Password;
+    var password = require('crypto').createHash('md5').update(password).digest('hex').toString();
     req.getConnection(function (err, connect) {
         if (username && password) {
             connect.query('SELECT * FROM dangki WHERE email = ? OR name=? AND pass = ?', [username, username, password], function (error, results, fields) {
@@ -64,6 +65,7 @@ exports.register = function (req, res) {
     var username = req.body.Username;
     //var password = bcrypt.hashSync(req.body.Password, 8);
     var password = req.body.Password;
+    var password = require('crypto').createHash('md5').update(password).digest('hex').toString();
     var email = req.body.Email;
     var mobile = req.body.Mobile;
     req.getConnection(function (err, connect) {
